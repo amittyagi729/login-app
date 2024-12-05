@@ -4,6 +4,7 @@ import { useLoginMutation } from '../store/api/apiSlice';
 import { useDispatch } from 'react-redux';
 import { login } from '../store/slices/authSlice'; // Import the login action
 import { useRouter } from 'next/router';
+import Link from 'next/link'; // Import Link for navigation
 
 export default function LoginForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -71,6 +72,20 @@ export default function LoginForm() {
       <Button type="submit" variant="contained" fullWidth>
         Login
       </Button>
+
+      {/* Register Link */}
+      <Typography variant="body2" align="center" marginTop={2}>
+        Not registered yet?{' '}
+        <Link href="/register" passHref>
+          <Typography 
+            component="span" 
+            color="primary" 
+            sx={{ textDecoration: 'underline', cursor: 'pointer' }}
+          >
+            Register here
+          </Typography>
+        </Link>
+      </Typography>
     </Box>
   );
 }

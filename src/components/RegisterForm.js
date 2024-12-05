@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
-import { Button, TextField, Box } from '@mui/material';
+import { Button, TextField, Box, Typography } from '@mui/material';
+import Link from 'next/link'; // Import Link for navigation
 import { useRegisterMutation } from '../store/api/apiSlice';
 import { useRouter } from 'next/router'; // Import useRouter for redirection
 
@@ -63,6 +64,20 @@ export default function RegisterForm() {
       <Button type="submit" variant="contained" fullWidth>
         Register
       </Button>
+
+      {/* Already Registered Link */}
+      <Typography variant="body2" align="center" marginTop={2}>
+        Already registered?{' '}
+        <Link href="/login" passHref>
+          <Typography 
+            component="span" 
+            color="primary" 
+            sx={{ textDecoration: 'underline', cursor: 'pointer' }}
+          >
+            Login here
+          </Typography>
+        </Link>
+      </Typography>
     </Box>
   );
 }
