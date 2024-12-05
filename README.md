@@ -68,7 +68,7 @@ src/
     ├── register.js         # Register page
     ├── login.js            # Login page
     └── dashboard.js        # Dashboard page  
-	└── _app.js             # main provider page
+    └── _app.js             # main provider page
     └── users-listing.js    # User listing page
 
  ## Running Tests 
