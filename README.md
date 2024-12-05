@@ -53,11 +53,10 @@ src/
 ├── app/
 │   ├── fonts/              # Store your fonts here
 │   ├── layout.js           # Main layout component for your app
-│   ├── globals.js          # Global styles and configuration
+│   ├── globals.css          # Global styles and configuration
 ├── components/
 │   ├── RegisterForm.js     # Registration form component
-│   ├── LoginForm.js        # Login form component
-│   ├── UserList.js         # Display users in the dashboard    
+│   ├── LoginForm.js        # Login form component   
 ├── store/
 │   ├── api/
 │   │   └── apiSlice.js     # RTK API slice for data fetching
@@ -69,7 +68,8 @@ src/
     ├── register.js         # Register page
     ├── login.js            # Login page
     └── dashboard.js        # Dashboard page  
-	└── _app.js 
+	└── _app.js             # main provider page
+    └── users-listing.js    # User listing page
 
 ## Running Tests
 To run tests, use the following command:
