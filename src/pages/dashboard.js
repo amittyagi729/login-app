@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useGetUsersQuery } from '../store/api/apiSlice';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { Box, Grid, Typography, CircularProgress, Card, CardContent, Drawer, AppBar, Toolbar, IconButton, List, ListItem, ListItemText, Divider, useMediaQuery } from '@mui/material';
 import { SettingsApplications as SettingsApplicationsIcon, AccountBox as AccountBoxIcon, Dashboard as DashboardIcon, ChevronLeft as ChevronLeftIcon, ChevronRight as ChevronRightIcon, Menu as MenuIcon, ExitToApp as ExitToAppIcon } from '@mui/icons-material';
-import { useDispatch } from 'react-redux';
 import { logout } from '../store/slices/authSlice'; // Assuming a logout action exists
+import UsersList from './users-listing.js';
 
 export default function Dashboard() {
   const [open, setOpen] = useState(true); // Sidebar state
@@ -122,34 +122,8 @@ export default function Dashboard() {
         </AppBar>
 
         <Typography variant="h4" gutterBottom sx={{ marginTop: '20px' }}>
-          Dashboard
         </Typography>
-
-        {/* Loader while fetching users */}
-        {isLoading && <CircularProgress />}
-
-        {/* Error message */}
-        {error && <Typography color="error">Error fetching users</Typography>}
-
-        {/* Users list */}
-        {data && (
-          <Grid container spacing={3}>
-            {data.data.map((user) => (
-              <Grid item xs={12} sm={6} md={4} key={user.id}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="h6">
-                      {user.first_name} {user.last_name}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary">
-                      {user.email}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        )}
+      <UsersList/>
       </Box>
     </Box>
   );
